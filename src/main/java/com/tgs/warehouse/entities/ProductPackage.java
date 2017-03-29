@@ -2,9 +2,13 @@ package com.tgs.warehouse.entities;
 
 public class ProductPackage {
 
-	Long id;
-	String description;
-	String type;
+	private Long id;
+	private String description;
+	private String type;
+	
+	public ProductPackage(){
+		
+	}
 	
 	public ProductPackage(String description, String type){
 		this.description = description;

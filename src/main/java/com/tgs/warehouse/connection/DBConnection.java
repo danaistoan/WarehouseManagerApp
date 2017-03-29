@@ -1,44 +1,38 @@
 package com.tgs.warehouse.connection;
 
-
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DBConnection {
 
-	
-	public static Connection openConnection(){
-		
+	private static DBConnection dbConnection = null;
+	private DataSource dataSource = null;
+	private DBConnection() {
+	}
+
+	// method called from the context listener and stored in the dbConnection instance variable
+	public static DBConnection getInstance() {
+		if (dbConnection == null) {
+			dbConnection = new DBConnection();
+		}
+		return dbConnection;
+	}
+
+	// called after the above from the context listener to set the datasource
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	//to be used from DAO to get a connection object
+	public Connection getConnection() {
 		Connection connection = null;
-		
-		try {
-			connection = ConnectionPool.getDBCP2Connection();
-			System.out.println("Connected with Connection Pool");
-		} catch (SQLException e) {
-
-			System.out.println("Cannot connect to DB");
-			e.printStackTrace();
-			return null;
-		}
-		
-		return connection;	
-	}
-	  
-	
-	public static void closeConnection(Connection connection){
-		
-		if(connection != null){
 			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				System.out.println("Cannot close connection...");
-				e.printStackTrace();
+				connection = dataSource.getConnection();
+			} 
+			catch (SQLException se) {
+				System.out.println(se);
 			}
-			System.out.println("Connection closed");
-		}
+		return connection;
 	}
-	
-	
 }
-

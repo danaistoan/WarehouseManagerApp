@@ -5,16 +5,27 @@
 	<groupId>com.tgs</groupId>
 	<artifactId>warehouse</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
+
 
 	<name>warehouse</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+
+	<build>
+	<finalName>ROOT</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 
@@ -40,6 +51,12 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 
 	</dependencies>

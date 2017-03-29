@@ -8,7 +8,6 @@ import java.util.Properties;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class ConnectionPool {
-
 	
 	static final BasicDataSource ds_dbcp2 = new BasicDataSource();
    
@@ -26,8 +25,7 @@ public class ConnectionPool {
             
         } catch (IOException e) {   
         	e.printStackTrace();
-        }
-      
+        }      
     }
 
     public static Connection getDBCP2Connection() throws SQLException {

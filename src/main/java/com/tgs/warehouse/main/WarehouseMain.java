@@ -20,7 +20,6 @@ public class WarehouseMain {
 	}
 	
 	
-	
 	public static void loadProductPallets(){
 		
 		ProductPackage package1 = new ProductPackage("Food for children", "Food");

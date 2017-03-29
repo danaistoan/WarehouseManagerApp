@@ -5,9 +5,12 @@ import java.util.List;
 
 public class ProductPallet {
 
-	Long id;
-	String description;
-	List<ProductPackage> packages = new ArrayList<ProductPackage>();
+	private Long id;
+	private String description;
+	private List<ProductPackage> packages = new ArrayList<ProductPackage>();
+	
+	public ProductPallet(){
+	}
 	
 	public ProductPallet(Long id, String description){
 		this.id = id;
