@@ -17,7 +17,7 @@
 	</properties>
 
 	<build>
-	<finalName>ROOT</finalName>
+	<finalName>WarehouseManager</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
